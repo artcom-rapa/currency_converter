@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block content %}
+<div>
+    <h3>Wybierz walutę i podaj ilość</h3><br>
+    <form action="" method="post">
+        <label for="operation">Wybierz operację do wykonania:</label>
+        <select name="operation" id="operation"><br><br>
+            <option value="buying">Kupno</option>
+            <option value="sales">Sprzedaż</option>
+        </select><br><br>
+        <label for="currency">Wybierz walutę:</label>
+        <select name="currency" id="currency"><br><br>
+            <option value="USD">USD</option>
+            <option value="AUD">AUD</option>
+            <option value="CAD">CAD</option>
+            <option value="EUR">EUR</option>
+            <option value="HUF">HUF</option>
+            <option value="CHF">CHF</option>
+            <option value="GBP">GBP</option>
+            <option value="JPY">JPY</option>
+            <option value="CZK">CZK</option>
+            <option value="DKK">DKK</option>
+            <option value="NOK">NOK</option>
+            <option value="SEK">SEK</option>
+            <option value="XDR">XDR</option>
+        </select><br><br>
+        <label for="quantity">Podaj ilość:</label>
+        <input type="text" id="quantity" name="quantity"><br><br>
+        <br><br>
+        <input type="submit" value="Przelicz">
+    </form>
+</div>
+{% endblock %}
