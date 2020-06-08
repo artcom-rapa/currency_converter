@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% block head %}
-    <meta charset="UTF-8">
-    <title>Currency converter</title>
-    <link rel="stylesheet" href="style.css">
-    {% endblock %}
-</head>
-<body>
-<div>
-    <h1>Przelicznik walut</h1>
+{% extends "index_.html" %}
+{% block content %}
+<div class="body">
+  <div class="main_body">
+    <h1 class="main_title">Przelicznik walut</h1>
+    <div class="body_img"><img src="{{url_for('static',filename='waluty.jpg')}}" alt="waluta" width="444" height="300" longdesc="kursywalut.jpg"> </div>
+  </div>
 </div>
-<div id="content">{% block content %}{% endblock %}</div>
-</body>
-</html>
+{% endblock %}

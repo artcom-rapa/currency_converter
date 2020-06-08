@@ -25,8 +25,12 @@ with open('rates.csv', 'w', newline='', encoding='utf-8') as csvfile:
 with open('rates.csv', 'r', encoding='utf-8') as csvfile:
     tab = [list(wiersz.split(";")) for wiersz in csvfile]
 
+@app.route("/")
+def index():
+    return render_template("index.html")
 
-@app.route('/', methods=['GET', 'POST'])
+
+@app.route('/calculate', methods=['GET', 'POST'])
 def convert():
     if request.method == 'GET':
         print("We received GET")

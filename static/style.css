@@ -1,0 +1,38 @@
+@charset "utf-8";
+.body {
+	width: 1020px;
+	height: 550px;
+	border: solid;
+	margin-left: 150px;
+	background-color: #80AA9E;
+	border-color: #9EDEBE;
+
+}
+.main_body {
+	text-align: center;
+	margin-left: 100px;
+	margin-right: 100px;
+	border: solid;
+	height: 450px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: #A5DACE;
+	border-color: #AEC6C2;
+}
+
+.main_title {
+	font-size:36px;
+	text-align:center;
+	margin-left: 90px;
+	margin-right: 90px;
+	background-color: #9EDEBE;
+	margin-top: 40px;
+	padding-top: 10px;
+}
+
+.body_img {
+}
+.form {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
