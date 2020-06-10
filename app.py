@@ -1,13 +1,10 @@
 from flask import Flask
-
-from flask import render_template
-from flask import request
+from flask import render_template, request
 
 import csv
 import requests
 
 app = Flask(__name__)
-
 
 response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
 data = response.json()
@@ -25,6 +22,13 @@ with open('rates.csv', 'w', newline='', encoding='utf-8') as csvfile:
 with open('rates.csv', 'r', encoding='utf-8') as csvfile:
     tab = [list(wiersz.split(";")) for wiersz in csvfile]
 
+code = []
+for row in tab:
+    code.append(row[1])
+
+currency_code = {c: t for (c, t) in zip(code, tab)}
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -36,18 +40,14 @@ def convert():
         print("We received GET")
         return render_template("calculate.html")
     elif request.method == 'POST':
-        for row in tab:
-            for elem in row:
-                if elem == request.form["currency"]:
-                    if request.form["operation"] == "buying":
-                        ask = row[3]
-                        value = str(float(ask) * int(request.form["quantity"])) + " PLN"
-                        return value
-                    elif request.form["operation"] == "sales":
-                        bid = row[2]
-                        value = str(float(bid) * int(request.form["quantity"])) + " PLN"
-                        return value
-
+        if request.form["operation"] == "buying":
+            ask = currency_code[request.form["currency"]][3]
+            value = str(float(ask) * int(request.form["quantity"])) + " PLN"
+            return render_template("calculate_value.html", result=value)
+        elif request.form["operation"] == "sales":
+            bid = currency_code[request.form["currency"]][2]
+            value = str(float(bid) * int(request.form["quantity"])) + "  PLN"
+            return render_template("calculate_value.html", result=value)
 
 if __name__ == '__main__':
     app.run(debug=True)

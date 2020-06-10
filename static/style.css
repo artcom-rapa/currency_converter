@@ -29,9 +29,19 @@
 	margin-top: 40px;
 	padding-top: 10px;
 }
-
-.body_img {
+.main_value {
+	font-size:36px;
+	text-align:center;
+	margin-left: 90px;
+	margin-right: 90px;
+	background-color: #9EDEBE;
+	margin-top: 40px;
+	padding-top: 10px;
+	font-weight: bold;
+	border: solid;
 }
+
+
 .form {
 	padding-top: 40px;
 	padding-bottom: 40px;
